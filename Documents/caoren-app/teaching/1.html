@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    html{
+        font-size: 62.5%;
+    }
+    #stage{
+        margin-top: 200px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 300px;
+        height: 300px;
+        perspective: 1200px;
+        font-size: 5em;
+        font-weight: bold;
+        color: #cc00ff;
+    }
+    .cube{
+        position: relative;
+        transform: rotateX(-45deg) rotateY(45deg);
+        transform-style: preserve-3d;
+        transition: all .6s;
+    }
+    .side{
+        color: blue;
+        text-align: center;
+        width: 300px;
+        height: 300px;
+        line-height: 300px;
+        position: absolute;
+        background: #cc00ff;
+        opacity: 0.5;
+        border: 1px solid rgba(117,4,24,0.5);
+    }
+    .front{
+        transform: translateZ(150px);
+    }
+    .back{
+        transform: rotateY(180deg) translateZ(150px);
+    }
+    .left{
+        transform: rotateY(-90deg) translateZ(150px);
+    }
+    .right{
+        transform: rotateY(90deg) translateZ(150px);
+    }
+    .top{
+        transform: rotateX(90deg) translateZ(150px);
+    }
+    .bottom{
+        transform: rotateX(-90deg) translateZ(150px);
+    }
+    #stage:hover .cube{
+        transform: rotateX(-45deg) rotateY(225deg);
+        transition: transform .6s;
+    }
+</style>
+<div id="stage">
+    <div class="cube">
+        <div class="side front"></div>
+        <div class="side back"></div>
+        <div class="side left"></div>
+        <div class="side right"></div>
+        <div class="side top"></div>
+        <div class="side bottom"></div>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    #div1 .current{background:red;}
+    #div1 div{width:200px;height:100px;border:solid 1px red;display:none;}
+</style>
+<div id="div1">
+    <input class="current" type="button" value="1">
+    <input type="button" value="2">
+    <input type="button" value="3">
+    <div style="display:block;">11111</div>
+    <div>22222</div>
+    <div>33333</div>
+</div>
+<script>
+//    function person(name){
+//        var obj = new Object();
+//        obj.name = name;
+//        obj.showName = function(){
+//            alert(this.name)
+//        }
+//        return obj;
+//    }
+//    person('阿猛').showName();
+
+    window.onload = function(){
+        var divId = document.getElementById('div1');
+        var inputBtn = divId.getElementsByTagName('input');
+        var divBox = divId.getElementsByTagName('div');
+        for(var i = 0; i < inputBtn.length; i++){
+            inputBtn[i].index = i;
+            inputBtn[i].onclick = function(){
+                for(var i = 0; i < inputBtn.length; i++){
+                    inputBtn[i].className = '';
+                    divBox[i].style.display = 'none';
+                }
+                this.className = 'current';
+                divBox[this.index].style.display = 'block';
+            }
+        }
+    }
+</script>
+</body>
+</html>
